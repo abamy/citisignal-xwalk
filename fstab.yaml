@@ -1,0 +1,8 @@
+mountpoints:
+  /:
+    url: "https://author-p53852-e347001.adobeaemcloud.com/bin/franklin.delivery/joannehoadobe/citisignal-temp/main"
+    type: "markup"
+    suffix: ".html"
+
+folders:
+  /products/: /products/default

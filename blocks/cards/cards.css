@@ -18,9 +18,11 @@
 
 .cards .cards-card-image {
   line-height: 0;
-  border-radius: 18px;
 }
 
+.cards .cards-card-image img{
+  border-radius: 18px;
+}
 .cards .cards-card-body > *:first-child {
   margin-top: 0;
 }

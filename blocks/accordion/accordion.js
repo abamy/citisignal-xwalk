@@ -7,7 +7,6 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
-  console.log('Hello World');
   [...block.children].forEach((row) => {
     // decorate accordion item label
     const label = row.children[0];

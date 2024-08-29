@@ -18,6 +18,7 @@
 
 .cards .cards-card-image {
   line-height: 0;
+  border-radius: 18px;
 }
 
 .cards .cards-card-body > *:first-child {

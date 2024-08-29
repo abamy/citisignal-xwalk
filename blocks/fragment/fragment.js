@@ -6,6 +6,7 @@
 
 import {
   decorateMain,
+  moveInstrumentation,
 } from '../../scripts/scripts.js';
 
 import {
@@ -41,6 +42,9 @@ export async function loadFragment(path) {
   return null;
 }
 
+/**
+ * @param {Element} block
+ */
 export default async function decorate(block) {
   const link = block.querySelector('a');
   const path = link ? link.getAttribute('href') : block.textContent.trim();
@@ -49,6 +53,7 @@ export default async function decorate(block) {
     const fragmentSection = fragment.querySelector(':scope .section');
     if (fragmentSection) {
       block.closest('.section').classList.add(...fragmentSection.classList);
+      moveInstrumentation(block, block.parentElement);
       block.closest('.fragment').replaceWith(...fragment.childNodes);
     }
   }

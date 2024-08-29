@@ -21,7 +21,8 @@
         "embed",
         "fragment",
         "quote",
-        "table"
+        "table",
+        "tabs"
       ]
     },
     {
@@ -75,5 +76,11 @@
     {
       "id":"table-5-columns",
       "components":["table-col-5"]
+    },  
+    {
+      "id": "tabs",
+      "components": [
+        "tabs-item"
+      ]
     }
   ]

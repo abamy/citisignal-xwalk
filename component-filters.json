@@ -18,7 +18,8 @@
         "accordion",
         "cards",
         "carousel",
-        "embed"
+        "embed",
+        "fragment"
       ]
     },
     {

@@ -16,7 +16,8 @@
         "teaser",
         "columns",
         "accordion",
-        "cards"
+        "cards",
+        "carousel"
       ]
     },
     {
@@ -37,6 +38,12 @@
       "id": "cards",
       "components": [
         "card"
+      ]
+    },
+    {
+      "id": "carousel",
+      "components": [
+        "carousel-item"
       ]
     }
   ]

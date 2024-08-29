@@ -1,20 +1,10 @@
 {
     "mappings": [
-      "/content/citisignal-edge-delivery/:/",
-      "/content/citisignal-edge-delivery/configuration:/.helix/config.json",
-      "/content/citisignal-edge-delivery/metadata:/metadata.json",
-      "/content/citisignal-edge-delivery/configs:/configs.json",
-      "/content/citisignal-edge-delivery/configs-stage:/configs-stage.json",
-      "/content/citisignal-edge-delivery/configs-dev:/configs-dev.json",
-      "/content/citisignal-edge-delivery/redirects:/redirects.json",
-      "/content/citisignal-edge-delivery/placeholders:/placeholders.json",
-      "/content/citisignal-edge-delivery/products/recommended-products:/products/recommended-products.json",
-      "/content/citisignal-edge-delivery/enrichment/enrichment:/enrichment/enrichment.json",
-      "/content/dam/citisignal/images/products/:/images/products/"
+      "/content/citisignal-marketing/:/",
+      "/content/citisignal-marketing/configuration:/.helix/config.json",
+      "/content/citisignal-marketing/metadata:/metadata.json"
     ],
     "includes": [
-      "/content/citisignal-edge-delivery",
-      "/content/dam/citisignal/images/products/",
-      "/content/dam/images/"
+      "/content/citisignal-marketing"
     ]
 }

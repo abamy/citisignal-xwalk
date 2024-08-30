@@ -187,12 +187,33 @@
                     "name": "Product Details",
                     "model": "product-details",
                     "key-value": true,
-                    "date": "08/07/2024",
+                    "date": "08/22/2024",
                     "add-to-cart-btn-text": "Add To Cart",
                     "add-to-wishlist-btn-text": "Add To List",
                     "share-btn-text": "Share",
                     "carousel-layout": "column",
                     "default-product": "samsung-galaxy-S22-ultra"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "title": "Product Details Plan",
+            "id": "product-details-plan",
+            "plugins": {
+              "xwalk": {
+                "page": {
+                  "resourceType": "core/franklin/components/block/v1/block",
+                  "template": {
+                    "name": "Product Details Plan",
+                    "model": "product-details-plan",
+                    "key-value": true,
+                    "add-to-cart-btn-text": "Add To Cart",
+                    "add-to-wishlist-btn-text": "Add To List",
+                    "share-btn-text": "Share",
+                    "carousel-layout": "column",
+                    "default-product": "connect-max-plan"
                   }
                 }
               }

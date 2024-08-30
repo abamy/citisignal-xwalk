@@ -14,7 +14,6 @@
     ],
     "includes": [
       "/content/citisignal-edge-delivery",
-      "/content/dam/citisignal/images/products/",
-      "/content/dam/images/"
+      "/content/dam/citisignal/images/products/"
     ]
 }

@@ -25,6 +25,7 @@ const LCP_BLOCKS = [
   'product-list-page',
   'product-list-page-custom',
   'product-details',
+  'product-details-plan',
   'commerce-cart',
   'commerce-checkout',
   'commerce-account',

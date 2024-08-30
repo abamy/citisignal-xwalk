@@ -123,3 +123,19 @@
 .product-list-page .ds-widgets_results > div:nth-child(2) > div {
   max-width: unset;
 }
+
+.product-list-page .ds-widgets .ds-sdk-product-list .product-image {
+  margin-right: 2rem;
+}
+
+.product-list-page .ds-widgets .ds-sdk-product-list .ds-sdk-product-item__product-name {
+  font-size: 22px;
+}
+
+.product-list-page .ds-widgets .ds-sdk-product-list .ds-sdk-product-list__grid .ds-sdk-product-item__product-name {
+  font-size: 16px;
+}
+
+.product-list-page .ds-widgets .ds-sdk-product-list .product-add-to-cart {
+  display: none;
+}

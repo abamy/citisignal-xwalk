@@ -4,7 +4,6 @@ import { events } from '@dropins/tools/event-bus.js';
 import { initializers } from '@dropins/tools/initializer.js';
 import * as productApi from '@dropins/storefront-pdp/api.js';
 import { render as productRenderer } from '@dropins/storefront-pdp/render.js';
-import { addProductsToCart } from '@dropins/storefront-cart/api.js';
 import ProductDetails from '@dropins/storefront-pdp/containers/ProductDetails.js';
 
 // Libs
@@ -12,7 +11,7 @@ import { getProduct, getSkuFromUrl, setJsonLd } from '../../scripts/commerce.js'
 import { getConfigValue } from '../../scripts/configs.js';
 import { fetchPlaceholders, readBlockConfig } from '../../scripts/aem.js';
 import { createAccordion, generateListHTML } from '../../scripts/scripts.js';
-import initToast from './toast.js';
+import initModal from './modal.js';
 
 // Error Handling (404)
 async function errorGettingProduct(code = 404) {
@@ -32,6 +31,7 @@ async function setJsonLdProduct(product) {
   const {
     name, inStock, description, sku, urlKey, price, priceRange, images, attributes,
   } = product;
+
   const amount = priceRange?.minimum?.final?.amount || price?.final?.amount;
   const brand = attributes.find((attr) => attr.name === 'brand');
 
@@ -52,9 +52,9 @@ async function setJsonLdProduct(product) {
       '@type': 'Brand',
       name: brand?.value,
     },
-    url: new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
+    url: new URL(`/products/plan/${urlKey}/${sku.toLowerCase()}`, window.location),
     sku,
-    '@id': new URL(`/products/${urlKey}/${sku.toLowerCase()}`, window.location),
+    '@id': new URL(`/products/plan/${urlKey}/${sku.toLowerCase()}`, window.location),
   }, 'product');
 }
 
@@ -126,7 +126,7 @@ export default async function decorate(block) {
   let productSku;
   if (product) {
     // product available
-    productSku = skuFromUrl; // getSkuFromUrl();
+    productSku = getSkuFromUrl();
   } else {
     // no product found, no sku
     product = await getProduct(blockConfig['default-product']);
@@ -169,9 +169,11 @@ export default async function decorate(block) {
         },
       },
       Custom: {
+        Share: { label: placeholders.pdpCustomShare },
         AddingToCart: { label: placeholders.pdpCustomAddingtocart },
         AddToWishlist: { label: placeholders.pdpCustomAddtowishlist },
-        Share: { label: placeholders.pdpCustomShare },
+        PlanModalTitle: { label: placeholders.pdpPlanModalTitle },
+        PlanModalDescription: { label: placeholders.pdpPlanModalDescription },
       },
     },
   };
@@ -262,20 +264,8 @@ export default async function decorate(block) {
                   disabled: adding || !next.data.inStock,
                   onClick: async () => {
                     try {
-                      state.set('adding', true);
-                      if (!next.valid) {
-                        // eslint-disable-next-line no-console
-                        console.warn('Invalid product', next.values);
-                        return;
-                      }
-                      const addToCartResponse = await addProductsToCart([{ ...next.values }]);
-
-                      // toast notification
-                      if (next.valid && !addToCartResponse.errors) {
-                        const { quantity } = next.values;
-                        const productMetaDescription = next.data.metaDescription;
-                        initToast(quantity, productMetaDescription);
-                      }
+                      // Plans flow
+                      initModal(next, state, blockConfig);
                     } catch (error) {
                       // eslint-disable-next-line no-console
                       console.warn('Error adding product to cart', error);

@@ -485,6 +485,21 @@ header .nav-cart-button:focus {
   background-color: unset;
 }
 
+header .nav-search-input .search-autocomplete .livesearch.product-result {
+  grid-template-areas:
+    "image productName"
+    "image price";
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 16px;
+  align-self: center;
+  height: 80px;
+  min-width: 192px;
+  box-sizing: inherit;
+  display: grid;
+  padding: unset;
+}
+
 header .nav-search-input .search_autocomplete .popover-container {
   width: 100%;
 }
@@ -541,6 +556,12 @@ header .header > .default-content-wrapper p:last-of-type img {
     left: unset;
     right: 0;
     top: 40px;
+  }
+}
+
+@media (width <= 768px) {
+  header .nav-search-input .search-autocomplete .products-container {
+    grid-template-columns: unset;
   }
 }
 

@@ -74,6 +74,12 @@ main .hero-container > div {
   font-weight: 500;
 }
 
+.hero .button-container a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--color-brand-700);
+}
+
 /* Picture Styles */
 .hero:not(.wireless) picture {
   position: absolute;

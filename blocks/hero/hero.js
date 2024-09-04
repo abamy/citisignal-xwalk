@@ -3,7 +3,7 @@
  * @param {Element} block The hero block element
  */
 
-alert ("Hello Helix 5")
+console.log ("Hello Helix 5")
 
 export default async function decorate(block) {
   // Target the third child div to add button-primary class

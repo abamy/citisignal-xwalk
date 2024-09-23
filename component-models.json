@@ -783,14 +783,14 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "media_image",
-        "label": "Background Image",
+        "name": "media_cont",
+        "label": "Background Image Or Video",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "media_imageAlt",
+        "name": "media_contAlt",
         "value": "",
         "label": "Bacgkround Alt"
       },
@@ -799,6 +799,20 @@
         "name": "content_text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content_linkText",
+        "label": "Button Text",
+        "value": ""
+      },
+      {
+        "component": "aem-content",
+        "name": "content_link",
+        "value": "",
+        "label": "Button Link",
         "valueType": "string"
       }
     ]
@@ -1098,6 +1112,29 @@
         "name": "placeholder_imageAlt",
         "value": "",
         "label": "Placeholder Image Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "icon-block-item",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "icon",
+        "label": "Icon",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "iconAlt",
+        "label": "Icon Alt",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "label": "Description",
+        "valueType": "string"
       }
     ]
   }

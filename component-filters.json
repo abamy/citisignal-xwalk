@@ -1,87 +1,76 @@
 [
-    {
-      "id": "main",
-      "components": [
-        "section"
-      ]
-    },
-    {
-      "id": "section",
-      "components": [
-        "text",
-        "image",
-        "button",
-        "title",
-        "hero",
-        "teaser",
-        "columns",
-        "accordion",
-        "cards",
-        "carousel",
-        "embed",
-        "fragment",
-        "quote",
-        "table",
-        "tabs",
-        "video"
-      ]
-    },
-    {
-      "id": "columns",
-      "components": [
-        "columns-text",
-        "columns-icon",
-        "columns-promo"
-      ]
-    },
-    {
-      "id": "accordion",
-      "components": [
-        "accordion-item"
-      ]
-    },
-    {
-      "id": "cards",
-      "components": [
-        "card"
-      ]
-    },
-    {
-      "id": "carousel",
-      "components": [
-        "carousel-item"
-      ]
-    },
-    {
-      "id": "table",
-      "components": [
-        "table-row"
-      ]
-    },
-    {
-      "id":"table-1-columns",
-      "components":["table-col-1"]
-    },
-    {
-      "id":"table-2-columns",
-      "components":["table-col-2"]
-    },
-    {
-      "id":"table-3-columns",
-      "components":["table-col-3"]
-    },
-    {
-      "id":"table-4-columns",
-      "components":["table-col-4"]
-    },
-    {
-      "id":"table-5-columns",
-      "components":["table-col-5"]
-    },  
-    {
-      "id": "tabs",
-      "components": [
-        "tabs-item"
-      ]
-    }
-  ]
+  {
+    "id": "main",
+    "components": ["section"]
+  },
+  {
+    "id": "section",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "hero",
+      "teaser",
+      "columns",
+      "accordion",
+      "cards",
+      "carousel",
+      "embed",
+      "fragment",
+      "quote",
+      "table",
+      "tabs",
+      "video",
+      "icon-block"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": ["columns-text", "columns-icon", "columns-promo"]
+  },
+  {
+    "id": "accordion",
+    "components": ["accordion-item"]
+  },
+  {
+    "id": "cards",
+    "components": ["card"]
+  },
+  {
+    "id": "carousel",
+    "components": ["carousel-item"]
+  },
+  {
+    "id": "table",
+    "components": ["table-row"]
+  },
+  {
+    "id": "table-1-columns",
+    "components": ["table-col-1"]
+  },
+  {
+    "id": "table-2-columns",
+    "components": ["table-col-2"]
+  },
+  {
+    "id": "table-3-columns",
+    "components": ["table-col-3"]
+  },
+  {
+    "id": "table-4-columns",
+    "components": ["table-col-4"]
+  },
+  {
+    "id": "table-5-columns",
+    "components": ["table-col-5"]
+  },
+  {
+    "id": "tabs",
+    "components": ["tabs-item"]
+  },
+  {
+    "id": "icon-block",
+    "components": ["icon-block-item"]
+  }
+]

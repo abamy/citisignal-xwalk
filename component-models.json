@@ -295,7 +295,7 @@
       },
       {
         "component": "richtext",
-        "name": "text",
+        "name": "content_text",
         "value": "",
         "label": "Text",
         "valueType": "string"
@@ -304,13 +304,13 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "teaser_linkText",
+        "name": "content_linkText",
         "label": "Button Text",
         "value": ""
       },
       {
         "component": "aem-content",
-        "name": "teaser_link",
+        "name": "content_link",
         "value": "",
         "label": "Button Link",
         "valueType": "string"

@@ -15,6 +15,7 @@
 :root {
   --primary-color: #8821f4;
   --secondary-color: #fafafa;
+  --button-radius: 12px;
 }
 
 :root,

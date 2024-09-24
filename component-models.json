@@ -1160,12 +1160,6 @@
         "valueType": "string"
       },
       {
-        "component": "text",
-        "name": "iconAlt",
-        "label": "Icon Alt",
-        "valueType": "string"
-      },
-      {
         "component": "richtext",
         "name": "description",
         "label": "Description",

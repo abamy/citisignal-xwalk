@@ -1154,7 +1154,7 @@
     "id": "icon-block-item",
     "fields": [
       {
-        "component": "reference",
+        "component": "richtext",
         "name": "icon",
         "label": "Icon",
         "valueType": "string"

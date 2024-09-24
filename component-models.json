@@ -243,7 +243,7 @@
       {
         "component": "multiselect",
         "name": "classes",
-        "value": "",
+        "value": "align-right",
         "label": "Style",
         "valueType": "string",
         "options": [
@@ -253,10 +253,6 @@
               {
                 "name": "Left",
                 "value": "align-left"
-              },
-              {
-                "name": "Center",
-                "value": "align-center"
               },
               {
                 "name": "Right",

@@ -6,6 +6,19 @@
   border-radius: 20px;
 }
 
+.teaser.align-right {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.teaser.align-right .teaser-img-col {
+  display: flex;
+  flex-direction: row-reverse;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 .teaser.bg-secondary {
   background: var(--secondary-color);
   color: #000;
@@ -26,9 +39,6 @@
   justify-content: center;
   overflow: hidden;
   flex: 1;
-  border-radius: 20px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 .teaser-img-col img {

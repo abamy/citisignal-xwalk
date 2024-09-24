@@ -24,7 +24,7 @@
   color: #000;
 }
 
-.teaser.bg-secondary .teaser-link {
+.teaser.bg-secondary a:any-link.teaser-link {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
@@ -93,7 +93,7 @@
   margin: 0;
 }
 
-.teaser .teaser-link {
+.teaser a:any-link.teaser-link {
   background-color: var(--secondary-color);
   display: inline-block;
   padding-top: 5px;

@@ -53,6 +53,28 @@
   border-radius: 18px;
 }
 
+.carousel .carousel-slide.bg-light .carousel-slide-content {
+  background-color: rgba(255 255 255 / 90%);
+  color: #000;
+}
+
+.carousel .carousel-slide.align-right .carousel-slide-content {
+  margin-left: auto;
+}
+
+.carousel .carousel-slide.align-center .carousel-slide-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel:has(li[aria-hidden='false'].bg-light) .carousel-slide-indicator {
+  background-color: rgb(255 255 255 / 60%);
+}
+
+.carousel:has(li[aria-hidden='false'].bg-light) .carousel-slide-indicator button {
+  background-color: #fff;
+}
+
 .carousel .carousel-slide .carousel-slide-content {
   z-index: 1;
   padding: 1rem;

@@ -8,6 +8,7 @@ export function startInterval(block) {
   block.loadPercentage = 0;
   if (interval > 0) {
     block.dataset.intervalIdPercentage = setInterval(() => {
+      if (block.state === 'paused') return;
       const slides = block.querySelectorAll('.carousel-slide');
       const slideIndex = parseInt(block.dataset.activeSlide, 10);
       const indicator = block.querySelector(
@@ -66,12 +67,19 @@ function updateActiveSlide(slide) {
   });
 }
 
+/**
+ *
+ * @param {Element} block
+ * @param {*} slideIndex
+ */
 export function showSlide(block, slideIndex = 0) {
   const slides = block.querySelectorAll('.carousel-slide');
   let realSlideIndex = slideIndex < 0 ? slides.length - 1 : slideIndex;
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
-
+  block.querySelectorAll('.carousel-slide-indicator > button').forEach((ind, index) => {
+    if (index != slideIndex) ind.style.width = '0';
+  });
   activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
@@ -84,6 +92,11 @@ export function showSlide(block, slideIndex = 0) {
   }, 100);
 }
 
+/**
+ *
+ * @param {Element} block
+ * @returns
+ */
 function bindEvents(block) {
   const slideIndicators = block.querySelector('.carousel-slide-indicators');
   if (!slideIndicators) return;
@@ -112,6 +125,13 @@ function bindEvents(block) {
   );
   block.querySelectorAll('.carousel-slide').forEach((slide) => {
     slideObserver.observe(slide);
+  });
+  // on hover stop interval
+  block.addEventListener('mouseenter', (e) => {
+    block.state = 'paused';
+  });
+  block.addEventListener('mouseleave', (e) => {
+    block.state = 'playing';
   });
 }
 
@@ -180,7 +200,16 @@ export default async function decorate(block) {
   }
 
   rows.forEach((row, idx) => {
+    const classes = row
+      .querySelector(':scope > div')
+      ?.textContent?.split(',')
+      ?.map((c) => c.trim());
+    row.querySelector(':scope > div')?.remove();
     const slide = createSlide(row, idx, carouselId);
+    if (classes && classes.length > 0) {
+      slide.classList.add(...classes);
+    }
+    console.log(row.querySelector(':scope > div'));
     moveInstrumentation(row, slide);
     slidesWrapper.append(slide);
 

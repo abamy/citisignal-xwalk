@@ -96,10 +96,8 @@
 .teaser .teaser-link {
   background-color: var(--secondary-color);
   display: inline-block;
-  padding: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border-radius: var(--button-radius);
 }
 
 @media (width <= 900px) {

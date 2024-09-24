@@ -310,6 +310,14 @@ main pre {
   white-space: pre;
 }
 
+a:any-link.button {
+  width: fit-content;
+  padding: 10px;
+  padding-inline: 30px;
+  background-color: var(--primary-color);
+  border-radius: 30px;
+}
+
 /* links */
 a:any-link {
   color: var(--color-black-100);

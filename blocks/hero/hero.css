@@ -13,7 +13,7 @@ main .hero-container > div {
   display: flex;
   padding: 5rem 10rem;
   min-height: 725px;
-  background: linear-gradient(180deg, #8821F4 0%, #3C1268 80.5%);
+  background: linear-gradient(180deg, var(--primary-color) 30%, var(--secondary-color) 100%);
   border-radius: 18px;
   box-sizing: border-box;
   color: #fff;
@@ -116,7 +116,7 @@ main .hero-container > div {
     padding: 8rem 2rem;
     min-height: auto;
   }
-  
+
   /* Responsive Styles for Default Content Wrapper */
   .hero-container .default-content-wrapper h1,
   .hero-container .default-content-wrapper h2,

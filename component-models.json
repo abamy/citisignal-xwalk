@@ -777,6 +777,45 @@
     "id": "carousel-item",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "align-right",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Alignment",
+            "children": [
+              {
+                "name": "Left",
+                "value": ""
+              },
+              {
+                "name": "Right",
+                "value": "align-right"
+              },
+              {
+                "name": "Center",
+                "value": "align-center"
+              }
+            ]
+          },
+          {
+            "name": "Type",
+            "children": [
+              {
+                "name": "Dark",
+                "value": "bg-light"
+              },
+              {
+                "name": "Light",
+                "value": "bg-dark"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "media_cont",

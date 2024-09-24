@@ -194,6 +194,11 @@ body:not(.appear) {
   visibility: hidden;
 }
 
+main .block {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 /* header {
   height: var(--nav-height);
 } */

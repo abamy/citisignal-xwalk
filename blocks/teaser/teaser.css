@@ -107,8 +107,12 @@
     flex-direction: column-reverse;
     max-height: 568px;
   }
-
-  .teaser > div:not(.teaser-img-col) > div {
+  .teaser .teaser-img-col {
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .teaser .teaser > div:not(.teaser-img-col) > div {
     text-align: center;
     padding: 5rem 7rem;
   }

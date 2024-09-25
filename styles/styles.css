@@ -310,7 +310,7 @@ main pre {
   white-space: pre;
 }
 
-a:any-link.button {
+.block a:any-link.button {
   width: fit-content;
   padding: 10px;
   padding-inline: 30px;

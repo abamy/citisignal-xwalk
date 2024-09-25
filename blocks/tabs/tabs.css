@@ -1,18 +1,16 @@
 .tabs.block .tabs-list {
   display: flex;
-  gap: 8px;
   max-width: 100%;
   overflow-x: auto;
 }
 
 .tabs.block .tabs-list button {
-  flex: 0 0 max-content;
+  flex: 1;
   margin: 0;
-  border: 1px solid grey;
-  border-radius: 18px 18px 0 0;
+  border: 1px solid #eaeaea;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 8px 16px;
-  background-color: lightgrey;
-  color: initial;
   font-size: unset;
   font-weight: bold;
   line-height: unset;
@@ -21,27 +19,38 @@
   overflow: unset;
   white-space: unset;
   transition: background-color 0.2s;
+  cursor: pointer;
+  text-align: center;
 }
 
-.tabs.block .tabs-list button[aria-selected="true"] {
-  border-bottom: 1px solid lightgrey;
-  background-color: white;
+.tabs.block .tabs-list button:first-of-type {
+  border-radius: 18px 0 0 0;
+}
+
+.tabs.block .tabs-list button:last-of-type {
+  border-radius: 0 18px 0 0;
+}
+
+.tabs.block .tabs-list button[aria-selected='true'] {
+  border-bottom: 3px solid var(--primary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   cursor: initial;
-
 }
 
-.tabs.block .tabs-list button[aria-selected="false"]:hover,
-.tabs.block .tabs-list button[aria-selected="false"]:focus {
+.tabs.block .tabs-list button[aria-selected='false']:hover,
+.tabs.block .tabs-list button[aria-selected='false']:focus {
   background-color: grey;
 }
 
 .tabs.block .tabs-panel {
   margin-top: -1px;
-  padding: 0 16px;
-  border: 1px solid grey;
+  padding: 16px 16px;
+  border: 1px solid #eaeaea;
+  border-radius: 0 0 18px 18px;
   overflow: auto;
 }
 
-.tabs.block .tabs-panel[aria-hidden="true"] {
+.tabs.block .tabs-panel[aria-hidden='true'] {
   display: none;
 }

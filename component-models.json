@@ -144,27 +144,67 @@
     "id": "section",
     "fields": [
       {
-        "component": "select",
+        "component": "multiselect",
         "name": "style",
         "value": "",
         "label": "Style",
         "valueType": "string",
         "options": [
           {
-            "name": "Brand Logo",
-            "value": "brand-logo"
+            "name": "Nav",
+            "children": [
+              {
+                "name": "Brand Logo",
+                "value": "brand-logo"
+              },
+              {
+                "name": "Site Links",
+                "value": "site-links"
+              },
+              {
+                "name": "Social Media",
+                "value": "social-media"
+              },
+              {
+                "name": "PDP Enrichment",
+                "value": "pdp-enrichment"
+              }
+            ]
           },
           {
-            "name": "Site Links",
-            "value": "site-links"
+            "name": "Alignment",
+            "children": [
+              {
+                "name": "Center",
+                "value": "align-center"
+              },
+              {
+                "name": "Right",
+                "value": "align-right"
+              }
+            ]
           },
           {
-            "name": "Social Media",
-            "value": "social-media"
+            "name": "Background",
+            "children": [
+              {
+                "name": "Primary",
+                "value": "bg-primary"
+              },
+              {
+                "name": "Secondary",
+                "value": "bg-secondary"
+              }
+            ]
           },
           {
-            "name": "PDP Enrichment",
-            "value": "pdp-enrichment"
+            "name": "Width",
+            "children": [
+              {
+                "name": "Full",
+                "value": "full-width"
+              }
+            ]
           }
         ]
       }

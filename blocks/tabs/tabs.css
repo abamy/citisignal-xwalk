@@ -7,7 +7,7 @@
 .tabs.block .tabs-list button {
   flex: 1;
   margin: 0;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--border-color);
   background-color: var(--primary-color);
   color: var(--secondary-color);
   padding: 8px 16px;
@@ -46,7 +46,7 @@
 .tabs.block .tabs-panel {
   margin-top: -1px;
   padding: 16px 16px;
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--border-color);
   border-radius: 0 0 18px 18px;
   overflow: auto;
 }

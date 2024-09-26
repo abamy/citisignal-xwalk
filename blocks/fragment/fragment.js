@@ -4,14 +4,9 @@
  * https://www.aem.live/developer/block-collection/fragment
  */
 
-import {
-  decorateMain,
-  moveInstrumentation,
-} from '../../scripts/scripts.js';
+import { decorateMain, moveInstrumentation } from '../../scripts/scripts.js';
 
-import {
-  loadBlocks,
-} from '../../scripts/aem.js';
+import { loadBlocks } from '../../scripts/aem.js';
 
 /**
  * Loads a fragment.
@@ -22,8 +17,9 @@ export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
-      const main = document.createElement('main');
+      let main = document.createElement('main');
       main.innerHTML = await resp.text();
+      main = main.querySelector(':scope > main') || main;
 
       // reset base path for media to fragment base
       const resetAttributeBase = (tag, attr) => {

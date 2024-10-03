@@ -37,7 +37,7 @@ export default function initToast(quantity, productMetaDescription) {
     toast.classList.remove('show');
     setTimeout(() => {
       if (toast) toastContainer.removeChild(toast);
-    }, 300); // Match this to the CSS transition duration
+    }, 500); // Match this to the CSS transition duration
   };
 
   // Hide toast on close icon click
@@ -45,5 +45,5 @@ export default function initToast(quantity, productMetaDescription) {
   closeIcon.addEventListener('click', hideToast);
 
   // Automatically hide the toast after 3 seconds
-  setTimeout(hideToast, 3000);
+  setTimeout(hideToast, 5000);
 }

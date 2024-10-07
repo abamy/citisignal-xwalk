@@ -15,11 +15,11 @@ import { loadBlocks } from '../../scripts/aem.js';
  */
 export async function loadFragment(path) {
   if (path && path.startsWith('/')) {
+    path = path.replace(/(\.plain)?\.html/, '');
     const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
-      let main = document.createElement('main');
+      const main = document.createElement('main');
       main.innerHTML = await resp.text();
-      main = main.querySelector(':scope > main') || main;
 
       // reset base path for media to fragment base
       const resetAttributeBase = (tag, attr) => {

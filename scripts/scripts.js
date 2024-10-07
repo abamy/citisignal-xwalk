@@ -466,10 +466,6 @@ export function generateListHTML(data) {
   return html;
 }
 
-export function isAuthorEnvironment() {
-  return document.querySelector('.block').hasAttribute('data-aue-resource');
-}
-
 /**
  * Check if consent was given for a specific topic.
  * @param {*} topic Topic identifier

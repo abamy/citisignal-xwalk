@@ -56,7 +56,7 @@ export default async function decorate(block) {
       </div>
   </div>
 	`;
-  if (isAuthor) {
+  if (!isAuthor) {
     moveInstrumentation(block, null);
     block.querySelectorAll('*').forEach((elem) => moveInstrumentation(elem, null));
   }

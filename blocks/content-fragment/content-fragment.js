@@ -14,15 +14,14 @@ export default async function decorate(block) {
     block.querySelector(':scope div:nth-child(2) > div')?.textContent?.trim()?.toLowerCase() ||
     'master';
   block.innerHTML = ``;
-  const isAuthor = isAuthorEnvironment();
-  const url =
-    window.location && window.location.origin && window.location.origin.includes('author')
-      ? `${aemauthorurl}${persistedquery};path=${contentPath};variation=${variationname};ts=${
-          Math.random() * 1000
-        }`
-      : `${aempublishurl}${persistedquery};path=${contentPath};variation=${variationname};ts=${
-          Math.random() * 1000
-        }`;
+  const isAuthor = window?.location?.origin?.startsWith('https://author-');
+  const url = window?.location?.origin?.includes('author')
+    ? `${aemauthorurl}${persistedquery};path=${contentPath};variation=${variationname};ts=${
+        Math.random() * 1000
+      }`
+    : `${aempublishurl}${persistedquery};path=${contentPath};variation=${variationname};ts=${
+        Math.random() * 1000
+      }`;
   const options = { credentials: 'include' };
 
   const cfReq = await fetch(url, options)

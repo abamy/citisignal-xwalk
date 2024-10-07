@@ -20,6 +20,21 @@ main .hero-container > div {
   z-index: 0;
 }
 
+.hero.medium {
+  min-height: 300px;
+  padding: 1.5rem 10rem;
+}
+
+.hero.small h1 {
+  font-size: 24px;
+  line-height: 40px;
+}
+
+.hero.small {
+  min-height: 180px;
+  padding: 1.5rem 10rem;
+}
+
 .hero > div:nth-child(2),
 .hero > div:nth-child(3) {
   flex: 1 1 50%;
@@ -33,6 +48,19 @@ main .hero-container > div {
 .hero div:nth-child(3) > div {
   width: 65%;
   margin-left: auto;
+}
+
+.hero.small > div:nth-child(2),
+.hero.small > div:nth-child(3) {
+  padding-top: 0;
+}
+
+.hero.small p.button-container {
+  margin-bottom: 0;
+}
+
+.hero.small p {
+  margin: 1rem 0;
 }
 
 /* Typography Styles */

@@ -467,7 +467,7 @@ export function generateListHTML(data) {
 }
 
 export function isAuthorEnvironment() {
-  return document.querySelector('.block').hasAttribute('data-aem-resource');
+  return document.querySelector('.block').hasAttribute('data-aue-resource');
 }
 
 /**

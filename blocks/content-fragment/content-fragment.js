@@ -1,5 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { isAuthorEnvironment, moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
  *
@@ -8,13 +8,16 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 export default async function decorate(block) {
   const aemauthorurl = getMetadata('authorurl') || '';
   const aempublishurl = getMetadata('publishurl') || '';
-  const persistedquery = '/graphql/execute.json/securbank/OfferByPath';
+  const persistedquery = '/graphql/execute.json/securbank/offerByPath';
   const contentPath = block.querySelector(':scope div:nth-child(1) > div a')?.textContent?.trim();
   const variationname =
-    block.querySelector(':scope div:nth-child(2) > div')?.textContent?.trim()?.toLowerCase() ||
-    'master';
+    block
+      .querySelector(':scope div:nth-child(2) > div')
+      ?.textContent?.trim()
+      ?.toLowerCase()
+      ?.replace(' ', '_') || 'master';
   block.innerHTML = ``;
-  const isAuthor = window?.location?.origin?.startsWith('https://author-');
+  const isAuthor = isAuthorEnvironment();
   const url = window?.location?.origin?.includes('author')
     ? `${aemauthorurl}${persistedquery};path=${contentPath};variation=${variationname};ts=${
         Math.random() * 1000
@@ -38,16 +41,16 @@ export default async function decorate(block) {
   block.innerHTML = `
   <div class='banner-content block' data-aue-resource=${itemId} data-aue-label="offer content fragment" data-aue-type="reference" data-aue-filter="cf">
 		<div class='banner-detail' style="background-image: linear-gradient(90deg,rgba(0,0,0,0.6), rgba(0,0,0,0.1) 80%) ,url(${
-      aemauthorurl + cfReq.heroImage._path
+      aemauthorurl + cfReq.heroImage?._path
     });">
           <p data-aue-prop="headline" data-aue-label="headline" data-aue-type="text" class='pretitle'>${
-            cfReq.headline
+            cfReq?.headline
           }</p>
           <p data-aue-prop="pretitle" data-aue-label="pretitle" data-aue-type="text" class='headline'>${
-            cfReq.pretitle
+            cfReq?.pretitle
           }</p>
           <p data-aue-prop="detail" data-aue-label="detail" data-aue-type="richtext" class='detail'>${
-            cfReq.detail.plaintext
+            cfReq?.detail?.plaintext
           }</p>
 
       </div>

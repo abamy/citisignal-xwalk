@@ -1,7 +1,8 @@
 {
     "groups": [
       {
-        "title": "Default Content",
+         "_comment": "Republishing refactored code",
+         "title": "Default Content",
         "id": "default",
         "components": [
           {

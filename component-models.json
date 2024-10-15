@@ -1,7 +1,6 @@
 [
     {
-       "_comment": "Republishing refactored code",
-       "id": "page-metadata",
+      "id": "page-metadata",
       "fields": [
         {
           "component": "text",

@@ -1,4 +1,3 @@
-/* to test code sync */
 import { getAemAuthorEnv } from '../../scripts/configs.js';
 
 const AEM_DIV_EXTRA_CONTENT = ['text, grid-layout', 'icon, icon-layout', 'promo, promo-layout'];

@@ -1,6 +1,5 @@
 [
     {
-      "_comment": "Republishing refactored code",
       "id": "main",
       "components": [
         "section"

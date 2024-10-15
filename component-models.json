@@ -645,7 +645,7 @@
       ]
     },
     {
-      "id": "columns",
+      "id": "columnsjo",
       "fields": [
         {
           "component": "select",
@@ -671,7 +671,7 @@
       ]
     },
     {
-      "id": "columns-text",
+      "id": "columnsjo-text",
       "fields": [
         {
           "component": "text",
@@ -696,7 +696,7 @@
       ]
     },
     {
-      "id": "columns-icon",
+      "id": "columnsjo-icon",
       "fields": [
         {
           "component": "text",
@@ -731,7 +731,7 @@
       ]
     },
     {
-      "id": "columns-promo",
+      "id": "columnsjo-promo",
       "fields": [
         {
           "component": "text",

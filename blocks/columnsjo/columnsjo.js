@@ -13,7 +13,7 @@ export default function decorate(block) {
   }
   if (block.firstElementChild && block.firstElementChild.children) {
     const cols = [...block.firstElementChild.children];
-    block.classList.add(`columns-${cols.length}-cols`);
+    block.classList.add(`columnsjo-${cols.length}-cols`);
   }
 
   // setup image columns
@@ -24,7 +24,7 @@ export default function decorate(block) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
-          picWrapper.classList.add('columns-img-col');
+          picWrapper.classList.add('columnsjo-img-col');
         }
       }
       // this is to remove empty <div></div> because of UE
@@ -43,7 +43,7 @@ export default function decorate(block) {
   const isAemAuthor = getAemAuthorEnv();
   if (isAemAuthor && /^\s*\n\s*$/.test(block.innerHTML)) { // block.innerHTML.trim() === '' && block.childNodes && block.childNodes.length === 0) {
     const authorBlock = document.createElement('div');
-    authorBlock.textContent = 'Columns container for enrichment';
+    authorBlock.textContent = 'Columns JS Object container for enrichment';
     block.appendChild(authorBlock);
   }
 }

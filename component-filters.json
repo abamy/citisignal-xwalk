@@ -24,15 +24,15 @@
         "commerce-cart",
         "commerce-checkout",
         "commerce-order-confirmation",
-        "columns"
+        "columnsjo"
       ]
     },
     {
-      "id": "columns",
+      "id": "columnsjo",
       "components": [
-        "columns-text",
-        "columns-icon",
-        "columns-promo"
+        "columnsjo-text",
+        "columnsjo-icon",
+        "columnsjo-promo"
       ]
     },
     {

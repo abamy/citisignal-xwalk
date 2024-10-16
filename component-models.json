@@ -1159,11 +1159,15 @@
         "valueType": "string"
       },
       {
-        "component": "text-input",
+        "component": "select",
         "name": "variation",
         "value": "",
         "label": "Variation",
-        "valueType": "string"
+        "valueType": "string",
+        "options": [
+          { "name": "Default", "value": "master" },
+          { "name": "Variation 1", "value": "Variation 1" }
+        ]
       }
     ]
   },

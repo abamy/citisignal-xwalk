@@ -41,6 +41,10 @@
     "components": ["column"]
   },
   {
+    "id": "columnsjo",
+    "components": ["columnsjo-text", "columnsjo-icon", "columnsjo-promo"]
+  },
+  {
     "id": "column",
     "components": ["text", "image", "button", "title"]
   },

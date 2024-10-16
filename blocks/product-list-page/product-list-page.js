@@ -1,20 +1,19 @@
 import { readBlockConfig } from '../../scripts/aem.js';
-import { getConfigValue, getAemAuthorEnv } from '../../scripts/configs.js';
+import { getConfigValue, getAemAuthorEnv, getAemContentPath } from '../../scripts/configs.js';
 
 export default async function decorate(block) {
-  // eslint-disable-next-line import/no-absolute-path, import/no-unresolved
-  await import('/scripts/widgets/search.js');
+  const isAemAuthor = getAemAuthorEnv();
+  if (isAemAuthor) {
+    let authorContentPath = getAemContentPath();
+    authorContentPath = `${authorContentPath}.resource/scripts/widgets/search.js`;
+    await import(`${authorContentPath}`);
+  } else {
+    // eslint-disable-next-line import/no-absolute-path, import/no-unresolved
+    await import('/scripts/widgets/search.js');
+  }
 
   const { category, urlpath, type } = readBlockConfig(block);
-  // block.textContent = '';
-  const plpAttributes = block.attributes;
-  const isAemAuthor = getAemAuthorEnv();
-  if (!isAemAuthor) {
-    block.textContent = '';
-  } else if (isAemAuthor && plpAttributes && plpAttributes.getNamedItem('data-aue-resource')) {
-    /* eslint-disable-next-line no-console */
-    console.log(`in product-list-page block, in AEM author env = ${isAemAuthor}, window.location = ${window.location}`);
-  }
+  block.textContent = '';
 
   const storeDetails = {
     environmentId: await getConfigValue('commerce-environment-id'),
@@ -51,7 +50,10 @@ export default async function decorate(block) {
     context: {
       customerGroup: await getConfigValue('commerce-customer-group'),
     },
-    route: ({ sku }) => `/products/${sku}`,
+    route: ({ sku }) => {
+      const base = urlpath === 'plans' ? '/products/plan/' : '/products/';
+      return `${base}${sku}`;
+    },
   };
 
   if (type !== 'search') {

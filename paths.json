@@ -1,10 +1,12 @@
 {
-    "mappings": [
-      "/content/citisignal-marketing/:/",
-      "/content/citisignal-marketing/configuration:/.helix/config.json",
-      "/content/citisignal-marketing/metadata:/metadata.json"
-    ],
-    "includes": [
-      "/content/citisignal-marketing"
-    ]
+  "mappings": [
+    "/content/citisignal-marketing/:/",
+    "/content/citisignal-marketing/configuration:/.helix/config.json",
+    "/content/citisignal-marketing/metadata:/metadata.json"
+  ],
+  "includes": [
+    "/content/citisignal-marketing",
+    "/content/citisignal-edge-delivery",
+    "/content/dam/citisignal/images/products/"
+  ]
 }

@@ -692,21 +692,28 @@
     ]
   },
   {
-    "id": "columns",
+    "id": "columns-grid",
     "fields": [
       {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
+        "component": "select",
+        "name": "classes",
+        "valueType": "string",
+        "label": "Style",
         "value": "",
-        "label": "Columns"
-      },
-      {
-        "component": "text",
-        "valueType": "number",
-        "name": "rows",
-        "value": "",
-        "label": "Rows"
+        "options": [
+          {
+            "name": "Grid",
+            "value": "grid"
+          },
+          {
+            "name": "Grid with Icons",
+            "value": "grid-placeholder-icons"
+          },
+          {
+            "name": "Promo",
+            "value": "promo"
+          }
+        ]
       }
     ]
   },

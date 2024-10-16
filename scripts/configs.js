@@ -35,28 +35,11 @@ function buildConfigURL(environment) {
   const configURL = new URL(`${window.location.origin}/${fileName}`);
   /* eslint-disable-next-line no-use-before-define */
   if (getAemAuthorEnv()) {
+    // eslint-disable-next-line no-use-before-define
     const aemContentPath = getAemContentPath();
     return new URL(`${window.location.origin}${aemContentPath}/${fileName}`);
   }
   return configURL;
-}
-
-function getAemContentPath() {
-  let authorContentPath = '/content';
-  if (window.hlx && window.hlx.codeBasePath) {
-    /* eslint-disable-next-line prefer-destructuring */
-    authorContentPath = window.hlx.codeBasePath.match(/^[^.]+/)[0];
-    /* eslint-disable-next-line no-console */
-    console.log(`In configs.js, is in AEM author env, so determine content path via hlx: ${authorContentPath}`);
-  } else if (window.location && window.location.pathname) {
-    let pathComponents = window.location.pathname.split('/');
-    pathComponents = pathComponents.filter((component) => component !== '');
-    const firstTwoElements = pathComponents.slice(0, 2).join('/');
-    authorContentPath = `/${firstTwoElements}`;
-    /* eslint-disable-next-line no-console */
-    console.log(`In configs.js, is in AEM author env, so determine content path via location: ${authorContentPath}`);
-  }
-  return authorContentPath;
 }
 
 const getConfigForEnvironment = async (environment) => {
@@ -99,6 +82,24 @@ export const getCookie = (cookieName) => {
   });
 
   return foundValue;
+};
+
+export const getAemContentPath = () => {
+  let authorContentPath = '/content';
+  if (window.hlx && window.hlx.codeBasePath) {
+    /* eslint-disable-next-line prefer-destructuring */
+    authorContentPath = window.hlx.codeBasePath.match(/^[^.]+/)[0];
+    /* eslint-disable-next-line no-console */
+    console.log(`In configs.js, is in AEM author env, so determine content path via hlx: ${authorContentPath}`);
+  } else if (window.location && window.location.pathname) {
+    let pathComponents = window.location.pathname.split('/');
+    pathComponents = pathComponents.filter((component) => component !== '');
+    const firstTwoElements = pathComponents.slice(0, 2).join('/');
+    authorContentPath = `/${firstTwoElements}`;
+    /* eslint-disable-next-line no-console */
+    console.log(`In configs.js, is in AEM author env, so determine content path via location: ${authorContentPath}`);
+  }
+  return authorContentPath;
 };
 
 export const getAemAuthorEnv = () => {

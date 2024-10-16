@@ -5,6 +5,7 @@ import {
   decorateButtons,
   decorateIcons,
   decorateSections,
+  decorateSectionFromMetadata,
   decorateTemplateAndTheme,
   loadBlocks,
   loadCSS,
@@ -25,6 +26,7 @@ const LCP_BLOCKS = [
   'product-list-page',
   'product-list-page-custom',
   'product-details',
+  'product-details-plan',
   'commerce-cart',
   'commerce-checkout',
   'commerce-account',
@@ -204,6 +206,7 @@ export function decorateMain(main) {
   decorateButtons(main);
   decorateIcons(main);
   decorateSections(main);
+  decorateSectionFromMetadata(main); // custom
   scheduleSections(main);
   scheduleBlocks(main);
   decorateBlocks(main);

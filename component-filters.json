@@ -28,7 +28,7 @@
   },
   {
     "id": "columns",
-    "components": ["columns-text", "columns-icon", "columns-promo"]
+    "components": []
   },
   {
     "id": "accordion",

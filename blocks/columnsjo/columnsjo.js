@@ -41,7 +41,8 @@ export default function decorate(block) {
   });
 
   const isAemAuthor = getAemAuthorEnv();
-  if (isAemAuthor && /^\s*\n\s*$/.test(block.innerHTML)) { // block.innerHTML.trim() === '' && block.childNodes && block.childNodes.length === 0) {
+  if (isAemAuthor && /^\s*\n\s*$/.test(block.innerHTML)) {
+    // block.innerHTML.trim() === '' && block.childNodes && block.childNodes.length === 0) {
     const authorBlock = document.createElement('div');
     authorBlock.textContent = 'Columns JS Object container for enrichment';
     block.appendChild(authorBlock);

@@ -45,21 +45,27 @@ const AUDIENCES = {
  * @returns an array of HTMLElement nodes that match the given scope
  */
 export function getAllMetadata(scope) {
-  return [...document.head.querySelectorAll(`meta[property^="${scope}:"],meta[name^="${scope}-"]`)]
-    .reduce((res, meta) => {
-      const id = toClassName(meta.name
+  return [
+    ...document.head.querySelectorAll(`meta[property^="${scope}:"],meta[name^="${scope}-"]`),
+  ].reduce((res, meta) => {
+    const id = toClassName(
+      meta.name
         ? meta.name.substring(scope.length + 1)
-        : meta.getAttribute('property').split(':')[1]);
-      res[id] = meta.getAttribute('content');
-      return res;
-    }, {});
+        : meta.getAttribute('property').split(':')[1],
+    );
+    res[id] = meta.getAttribute('content');
+    return res;
+  }, {});
 }
 
 /**
  * Returns the current timestamp used for scheduling content.
  */
 export function getTimestamp() {
-  if ((window.location.hostname === 'localhost' || window.location.hostname.endsWith('.hlx.page')) && window.sessionStorage.getItem('preview-date')) {
+  if (
+    (window.location.hostname === 'localhost' || window.location.hostname.endsWith('.hlx.page')) &&
+    window.sessionStorage.getItem('preview-date')
+  ) {
     return Date.parse(window.sessionStorage.getItem('preview-date'));
   }
   return Date.now();
@@ -132,12 +138,47 @@ const pluginContext = {
 };
 
 /**
+ * Moves all the attributes from a given elmenet to another given element.
+ * @param {Element} from the element to copy attributes from
+ * @param {Element} to the element to copy attributes to
+ */
+export function moveAttributes(from, to, attributes) {
+  if (!attributes) {
+    // eslint-disable-next-line no-param-reassign
+    attributes = [...from.attributes].map(({ nodeName }) => nodeName);
+  }
+  attributes.forEach((attr) => {
+    const value = from.getAttribute(attr);
+    if (value) {
+      to?.setAttribute(attr, value);
+      from?.removeAttribute(attr);
+    }
+  });
+}
+
+/**
+ * Move instrumentation attributes from a given element to another given element.
+ * @param {Element} from the element to copy attributes from
+ * @param {Element} to the element to copy attributes to
+ */
+export function moveInstrumentation(from, to) {
+  moveAttributes(
+    from,
+    to,
+    [...from.attributes]
+      .map(({ nodeName }) => nodeName)
+      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+  );
+}
+
+/**
  * load fonts.css and set a session storage flag
  */
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes('localhost'))
+      sessionStorage.setItem('fonts-loaded', 'true');
   } catch (e) {
     // do nothing
   }
@@ -186,13 +227,15 @@ function preloadFile(href, as) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
-  await initializeDropins();
+  // await initializeDropins();
   decorateTemplateAndTheme();
 
   // Instrument experimentation plugin
-  if (getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length) {
+  if (
+    getMetadata('experiment') ||
+    Object.keys(getAllMetadata('campaign')).length ||
+    Object.keys(getAllMetadata('audience')).length
+  ) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadEager: runEager } = await import('../plugins/experimentation/src/index.js');
     await runEager(document, { audiences: AUDIENCES }, pluginContext);
@@ -220,7 +263,9 @@ async function loadEager(doc) {
     preloadFile('/blocks/product-details-custom/ProductDetailsShimmer.js', 'script');
     preloadFile('/blocks/product-details-custom/Icon.js', 'script');
 
-    const blockConfig = readBlockConfig(document.body.querySelector('main .product-details-custom'));
+    const blockConfig = readBlockConfig(
+      document.body.querySelector('main .product-details-custom'),
+    );
     const sku = getSkuFromUrl() || blockConfig.sku;
     window.getProductPromise = getProduct(sku);
   } else if (document.body.querySelector('main .product-list-page')) {
@@ -234,7 +279,9 @@ async function loadEager(doc) {
 
     if (category && urlpath) {
       // eslint-disable-next-line import/no-unresolved, import/no-absolute-path
-      const { preloadCategory } = await import('/blocks/product-list-page-custom/product-list-page-custom.js');
+      const { preloadCategory } = await import(
+        '/blocks/product-list-page-custom/product-list-page-custom.js'
+      );
       preloadCategory({ id: category, urlPath: urlpath });
     }
   } else if (document.body.querySelector('main .commerce-cart')) {
@@ -312,9 +359,11 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   // Implement experimentation preview pill
-  if ((getMetadata('experiment')
-    || Object.keys(getAllMetadata('campaign')).length
-    || Object.keys(getAllMetadata('audience')).length)) {
+  if (
+    getMetadata('experiment') ||
+    Object.keys(getAllMetadata('campaign')).length ||
+    Object.keys(getAllMetadata('audience')).length
+  ) {
     // eslint-disable-next-line import/no-relative-packages
     const { loadLazy: runLazy } = await import('../plugins/experimentation/src/index.js');
     await runLazy(document, { audiences: AUDIENCES }, pluginContext);
@@ -339,7 +388,7 @@ export async function fetchIndex(indexFile, pageSize = 500) {
     const json = await resp.json();
 
     const newIndex = {
-      complete: (json.limit + json.offset) === json.total,
+      complete: json.limit + json.offset === json.total,
       offset: json.offset + pageSize,
       promise: null,
       data: [...window.index[indexFile].data, ...json.data],
@@ -367,7 +416,7 @@ export async function fetchIndex(indexFile, pageSize = 500) {
   }
 
   window.index[indexFile].promise = handleIndex(window.index[indexFile].offset);
-  const newIndex = await (window.index[indexFile].promise);
+  const newIndex = await window.index[indexFile].promise;
   window.index[indexFile] = newIndex;
 
   return newIndex;
@@ -418,6 +467,10 @@ export function generateListHTML(data) {
   });
   html += '</ul>';
   return html;
+}
+
+export function isAuthorEnvironment() {
+  return document.querySelector('*[data-aue-resource]') !== null;
 }
 
 /**

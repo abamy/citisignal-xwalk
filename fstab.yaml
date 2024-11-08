@@ -1,6 +1,6 @@
 mountpoints:
   /:
-    url: "https://author-p131639-e1282833.adobeaemcloud.com/bin/franklin.delivery/AdobeDevXSC/citisignal-xwalk/main"
+    url: "https://author-p31104-e170504.adobeaemcloud.com/bin/franklin.delivery/abamy/citisignal-xwalk/main"
     type: "markup"
     suffix: ".html"
 

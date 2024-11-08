@@ -5,7 +5,7 @@
     "/content/citisignal/metadata:/metadata.json"
   ],
   "includes": [
-    "/content/citisignal-marketing",
+    "/content/citisignal",
     "/content/citisignal-edge-delivery",
     "/content/dam/citisignal/images/products/"
   ]

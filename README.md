@@ -6,8 +6,8 @@ https://experienceleague.adobe.com/developer/commerce/storefront/
 
 ## Environments
 
-- Preview: https://main--citisignal--abamy.aem.page/
-- Live: https://main--citisignal--abamy.aem.live/
+- Preview: https://main--citisignal-xwalk--abamy.aem.page/
+- Live: https://main--citisignal-xwalk--abamy.aem.live/
 
 ## Pre-requisites
 

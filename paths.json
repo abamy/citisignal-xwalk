@@ -1,8 +1,8 @@
 {
   "mappings": [
-    "/content/citisignal-marketing/:/",
-    "/content/citisignal-marketing/configuration:/.helix/config.json",
-    "/content/citisignal-marketing/metadata:/metadata.json"
+    "/content/citisignal/:/",
+    "/content/citisignal/configuration:/.helix/config.json",
+    "/content/citisignal/metadata:/metadata.json"
   ],
   "includes": [
     "/content/citisignal-marketing",
